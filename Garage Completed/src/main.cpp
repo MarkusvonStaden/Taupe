@@ -8,7 +8,7 @@
 #include <EEPROM.h>
 
 const String Type = "Garage";
-const String Version = "0.01";
+const String Version = "3";
 
 String SSID;
 String PASSWORD;
@@ -123,6 +123,6 @@ void setup() {
 }
 
 void loop() {
-  delay(10000); 
-  debug("Testing");
+  delay(5000); 
+  debug("Version 3 Update Success");
 }
