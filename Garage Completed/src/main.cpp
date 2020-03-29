@@ -13,6 +13,14 @@ String SSID;
 String PASSWORD;
 
 ESP8266WebServer server(80);
+HTTPClient http;
+
+void debug(String message){
+  http.begin("http://staden-iot.de/debug");
+  http.addHeader("Content-Type", "text/plain");
+  http.POST(message);
+  http.end();
+}
 
 void ReadEEPROM(void){
   SSID = "";
@@ -111,12 +119,5 @@ void setup() {
 
 void loop() {
   delay(1000);
-  if (update()){
-    digitalWrite(LED_BUILTIN, HIGH);
-  }
-  else{
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-  
-  // put your main code here, to run repeatedly:
+  debug("Pimmel");
 }
