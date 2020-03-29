@@ -1,4 +1,5 @@
 #include <Arduino.h>
+
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
@@ -16,10 +17,13 @@ ESP8266WebServer server(80);
 HTTPClient http;
 
 void debug(String message){
-  http.begin("http://staden-iot.de/debug");
+  digitalWrite(LED_BUILTIN, 0);
+  http.begin("http://staden-iot.de:5000/debug");
   http.addHeader("Content-Type", "text/plain");
   http.POST(message);
   http.end();
+  delay(100);
+  digitalWrite(LED_BUILTIN, 1);
 }
 
 void ReadEEPROM(void){
@@ -115,6 +119,7 @@ void setup() {
   // put your setup code here, to run once:
 
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, 1);
 }
 
 void loop() {
