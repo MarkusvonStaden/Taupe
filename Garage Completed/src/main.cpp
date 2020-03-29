@@ -116,13 +116,13 @@ void setup() {
     startAP();
   }
 
-  // put your setup code here, to run once:
+  update();
 
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, 1);
 }
 
 void loop() {
-  delay(1000);
+  delay(10000);
   debug("Pimmel");
 }
