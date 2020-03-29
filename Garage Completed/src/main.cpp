@@ -124,5 +124,5 @@ void setup() {
 
 void loop() {
   delay(10000); 
-  debug("Pimmel1234");
+  debug("Testing");
 }
